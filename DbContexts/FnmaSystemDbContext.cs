@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace odata_poc.DbContexts {
     public class FnmaSystemDbContext : DbContext {
         public DbSet<FnmaSystem> Systems {get; set;}
-        public DbSet<SystemInterface> Interfaces {get; set;}
+        public DbSet<SystemInterface> Interface {get; set;}
 
         public FnmaSystemDbContext(DbContextOptions<FnmaSystemDbContext> options) : base(options) {    }
 

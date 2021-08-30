@@ -165,5 +165,22 @@ namespace odata_poc.Controllers {
             _fnmaSystemDbContext.SaveChanges();
             return NoContent();
         }
+
+        [HttpDelete]
+        [ODataRoute("FnmaSystem({key})")]
+        public IActionResult DeletePerson(int key)
+        {
+            var currentSystem = _fnmaSystemDbContext.Systems
+                .FirstOrDefault(p => p.FnmaSystemId == key);
+
+            if (currentSystem == null)
+            {
+                return NotFound();
+            }
+
+            _fnmaSystemDbContext.Systems.Remove(currentSystem);
+            _fnmaSystemDbContext.SaveChanges();
+            return NoContent();
+        }
     }
 }

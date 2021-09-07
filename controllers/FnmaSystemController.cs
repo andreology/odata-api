@@ -27,6 +27,7 @@ namespace odata_poc.Controllers {
         }
 
         [HttpGet]
+        [EnableQuery]
         [ODataRoute("FnmaSystem({key})")]
         public IActionResult Get(int key) {
             var system = _fnmaSystemDbContext.Systems.Where( p => p.FnmaSystemId == key);
@@ -35,7 +36,7 @@ namespace odata_poc.Controllers {
                 return NotFound();
             }
 
-            return Ok(system);
+            return Ok(SingleResult.Create(system));
         }
 
          [HttpGet]
@@ -168,7 +169,7 @@ namespace odata_poc.Controllers {
 
         [HttpDelete]
         [ODataRoute("FnmaSystem({key})")]
-        public IActionResult DeletePerson(int key)
+        public IActionResult DeleteFnmaSystem(int key)
         {
             var currentSystem = _fnmaSystemDbContext.Systems
                 .FirstOrDefault(p => p.FnmaSystemId == key);

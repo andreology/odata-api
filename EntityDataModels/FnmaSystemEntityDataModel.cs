@@ -12,6 +12,9 @@ namespace odata_poc.EntityDataModels{
 
             builder.EntitySet<SystemInterface>("SystemInterface");
             builder.EntitySet<FnmaSystem>("FnmaSystem");
+            
+            builder.EntitySet<Account>("Account");
+            builder.EntitySet<Property>("Property");
 
             return builder.GetEdmModel();
         }

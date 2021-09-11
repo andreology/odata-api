@@ -9,9 +9,6 @@ namespace odata_poc.EntityDataModels{
             var builder = new ODataConventionModelBuilder();
             builder.Namespace = "FnmaSystem";
             builder.ContainerName = "FnmaSystemContainer";
-
-            builder.EntitySet<SystemInterface>("SystemInterface");
-            builder.EntitySet<FnmaSystem>("FnmaSystem");
             
             builder.EntitySet<Account>("Account");
             builder.EntitySet<Property>("Property");

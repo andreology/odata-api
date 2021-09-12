@@ -30,7 +30,7 @@ namespace odata_poc.Controllers {
         [EnableQuery]
         [ODataRoute("Account({key})")]
         public IActionResult Get(int key) {
-            var account = _fnmaSystemDbContext.Accounts.Where( p => p.AccountId == key);
+            var account = _fnmaSystemDbContext.Accounts.Where( p => p.SellerNumber == key);
 
             if(!account.Any()) {
                 return NotFound();
@@ -41,11 +41,10 @@ namespace odata_poc.Controllers {
 
          [HttpGet]
         [ODataRoute("Account({key})/Name")]
-        [ODataRoute("Account({key})/LoanNumber")]
         public IActionResult GetAccountProperty(int key)
         {
             var account = _fnmaSystemDbContext.Accounts
-                .FirstOrDefault(p => p.AccountId == key);
+                .FirstOrDefault(p => p.SellerNumber == key);
 
             if (account == null)
             {
@@ -72,11 +71,10 @@ namespace odata_poc.Controllers {
 
          [HttpGet]
         [ODataRoute("Account({key})/Name/$value")]
-        [ODataRoute("Account({key})/LoanNumber/$value")]
         public IActionResult GetAccountPropertyRawValue(int key)
         {
             var account = _fnmaSystemDbContext.Accounts
-              .FirstOrDefault(p => p.AccountId == key);
+              .FirstOrDefault(p => p.SellerNumber == key);
 
             if (account == null)
             {
@@ -130,14 +128,14 @@ namespace odata_poc.Controllers {
             }
 
             var currentAccount = _fnmaSystemDbContext.Accounts
-                .FirstOrDefault(p => p.AccountId == key);
+                .FirstOrDefault(p => p.SellerNumber == key);
 
             if (currentAccount == null)
             {
                 return NotFound();
             }
 
-            account.AccountId = currentAccount.AccountId;
+            account.SellerNumber = currentAccount.SellerNumber;
             _fnmaSystemDbContext.Entry(currentAccount).CurrentValues.SetValues(account);
             _fnmaSystemDbContext.SaveChanges();
 
@@ -153,7 +151,7 @@ namespace odata_poc.Controllers {
             }
 
             var currentAccount = _fnmaSystemDbContext.Accounts
-                .FirstOrDefault(p => p.AccountId == key);
+                .FirstOrDefault(p => p.SellerNumber == key);
 
             if (currentAccount == null)
             {
@@ -170,7 +168,7 @@ namespace odata_poc.Controllers {
         public IActionResult DeleteAccount(int key)
         {
             var currentAccount = _fnmaSystemDbContext.Accounts
-                .FirstOrDefault(p => p.AccountId == key);
+                .FirstOrDefault(p => p.SellerNumber == key);
 
             if (currentAccount == null)
             {

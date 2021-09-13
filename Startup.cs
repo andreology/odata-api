@@ -72,7 +72,7 @@ namespace odata_poc
                                          oDataBatchHandler).Select()
                                                            .Expand()
                                                            .OrderBy()
-                                                           .MaxTop(10)
+                                                           .MaxTop(50000)
                                                            .Count()
                                                            .Filter();
             });

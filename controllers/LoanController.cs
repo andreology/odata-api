@@ -21,7 +21,7 @@ namespace odata_poc.Controllers {
             _fnmaSystemDbContext = fnmaSystemDbContext ?? throw new ArgumentNullException(nameof(fnmaSystemDbContext));
         }
 
-        [EnableQuery(MaxExpansionDepth = 3, MaxSkip = 10, MaxTop = 5, PageSize = 4)]
+        [EnableQuery(MaxExpansionDepth = 3, MaxSkip = 49995, MaxTop = 5, PageSize = 4)]
         public IActionResult Get() {
             return Ok( _fnmaSystemDbContext.Loans);
         }

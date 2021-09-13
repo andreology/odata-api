@@ -13,6 +13,7 @@ namespace odata_poc.DbContexts {
         public DbSet<Account> Accounts {get; set;}
         public DbSet<Property> Properties {get; set;}
         public DbSet<Loan> Loans {get; set;}
+        public DbSet<LoanExitRate> LoanExitRates {get; set;}
 
         public FnmaSystemDbContext(DbContextOptions<FnmaSystemDbContext> options) : base(options) {    }
 
@@ -162,6 +163,65 @@ namespace odata_poc.DbContexts {
                    SubmittedDate = new DateTimeOffset(new DateTime(2020, 12, 03)),
                    SellerNumber = 24343
                }
+           );
+           modelBuilder.Entity<LoanExitRate>().HasData(
+                new LoanExitRate() {
+                    MsaCode = 38060,
+                    OneYrProjectedGrowthRate = 4.268,
+                    TwoYrProjectedGrowthRate = 5.268, 
+                    ThirdYrProjectedGrowthRate = 6.268, 
+                    ForthYrProjectedGrowthRate = 7.268,
+                    FifthYrProjectedGrowthRate = 8.268
+                },
+                new LoanExitRate() {
+                    MsaCode = 12420,
+                    OneYrProjectedGrowthRate = 2.851,
+                    TwoYrProjectedGrowthRate = 3.851, 
+                    ThirdYrProjectedGrowthRate = 4.851, 
+                    ForthYrProjectedGrowthRate = 5.851,
+                    FifthYrProjectedGrowthRate = 6.851
+                },
+                new LoanExitRate() {
+                    MsaCode = 37460,
+                    OneYrProjectedGrowthRate = 3.65,
+                    TwoYrProjectedGrowthRate = 4.65, 
+                    ThirdYrProjectedGrowthRate = 5.65, 
+                    ForthYrProjectedGrowthRate = 6.65,
+                    FifthYrProjectedGrowthRate = 7.65
+                },
+                new LoanExitRate() {
+                    MsaCode = 18860,
+                    OneYrProjectedGrowthRate = 6.85,
+                    TwoYrProjectedGrowthRate = 7.85, 
+                    ThirdYrProjectedGrowthRate = 8.85, 
+                    ForthYrProjectedGrowthRate = 9.85,
+                    FifthYrProjectedGrowthRate = 10.85
+                },
+                new LoanExitRate() {
+                    MsaCode = 19300,
+                    OneYrProjectedGrowthRate = 1.12,
+                    TwoYrProjectedGrowthRate = 1.99, 
+                    ThirdYrProjectedGrowthRate = 2.12, 
+                    ForthYrProjectedGrowthRate = 3.12,
+                    FifthYrProjectedGrowthRate = 4.12
+                },
+                new LoanExitRate() {
+                    MsaCode = 18860,
+                    OneYrProjectedGrowthRate = 6.85,
+                    TwoYrProjectedGrowthRate = 7.85, 
+                    ThirdYrProjectedGrowthRate = 8.85, 
+                    ForthYrProjectedGrowthRate = 9.85,
+                    FifthYrProjectedGrowthRate = 10.85
+                },
+                new LoanExitRate() {
+                    MsaCode = 35380,
+                    OneYrProjectedGrowthRate = 3.35,
+                    TwoYrProjectedGrowthRate = 4.35, 
+                    ThirdYrProjectedGrowthRate = 5.35, 
+                    ForthYrProjectedGrowthRate = 6.35,
+                    FifthYrProjectedGrowthRate = 7.35
+                }
+
            );
         }
     }

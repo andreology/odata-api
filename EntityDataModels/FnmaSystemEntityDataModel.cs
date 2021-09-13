@@ -13,7 +13,8 @@ namespace odata_poc.EntityDataModels{
             builder.EntitySet<Account>("Account");
             builder.EntitySet<Property>("Property");
             builder.EntitySet<Loan>("Loan");
-            
+            builder.EntitySet<Loan>("LoanExitRate");
+
             return builder.GetEdmModel();
         }
     }
